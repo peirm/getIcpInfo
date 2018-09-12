@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>备案信息展示插件</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet" /> 
+ </head> 
+ <body> 
+  <header> 
+   <nav class="navbar navbar-default navbar-fixed-top"> 
+    <div class="container-fluid"> 
+     <div class="navbar-header"> 
+      <a class="navbar-brand" href="#">备案信息展示插件</a> 
+     </div> 
+     <div id="navbar" class="navbar-collapse collapse"> 
+      <ul class="nav navbar-nav"> 
+       <li class="active"> <a href="#">Home</a> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </nav> 
+  </header> 
+  <div class="container"> 
+   <div class="clearfix" style="margin:50px auto"> 
+    <h1>备案信息展示插件</h1> 
+   </div> 
+   <div class="row"> 
+    <div class="col-sm-6 col-md-4"> 
+     <div class="thumbnail"> 
+      <img height="239px" src="//wx4.sinaimg.cn/mw690/0060lm7Tly1fuwqy2qfz2j30al06njrg.jpg" alt="..." /> 
+      <div class="caption"> 
+       <h3>显示网站备案号</h3> 
+       <p>自动显示网站备案号</p> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="col-sm-6 col-md-4"> 
+     <div class="thumbnail"> 
+      <img height="239px" src="//wx4.sinaimg.cn/mw690/0060lm7Tly1fuwqz0596ej30qm0j0wgd.jpg" alt="..." /> 
+      <div class="caption"> 
+       <h3>显示详细备案信息</h3> 
+       <p>只需几行代码，即可在网站展示网站的备案信息</p> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="col-sm-6 col-md-4"> 
+     <div class="thumbnail"> 
+      <img height="239px" src="//wx3.sinaimg.cn/mw690/0060lm7Tly1fuwqxk01w5j307y06nt92.jpg" alt="..." /> 
+      <div class="caption"> 
+       <h3>在线更新备案信息缓存</h3> 
+       <p>只需几行代码，即可在网站展示网站的备案信息</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="clearfix" style="margin-bottom:20px"></div> 
+   <h2>示例代码</h2> 
+   <p>点击备案号可以查看详细信息</p> 备案号： 
+   <script>
+!function(window) {
+    window.__GETICPINFO__ = {
+        websiteHost: '', // 不填将获取当前域名备案信息 这里可以填指定域名
+        jqueryPath: '', // 自定义jquery路径 之前有引入则不再引入 默认是bootcdn 可不用改
+        layerHeight: 'auto', // layer弹出层长度 默认自适应 可不用改
+        isCenter: false, // 是否居中 默认不居中 选择居中将单独占用一行
+        isShowInfo: true, // 是否点击备案号显示详细信息 false则不引入jquery和layer
+        showIcon: true, // 是否显示图标
+        icpIcon:"", // 自定义图标地址
+        removeDecoration: true, // 是否去掉a标签下划线 建议去掉比较美观
+        aColor: "#7B7B7B", // 字体颜色
+        cacheTime: 1 // 缓存本地时间(防止重复获取拉低速度) 单位：天 默认1天
+    };
+    document.write('<span id="icpInfoSpan"></span>');
+    getIcpInfo_tag = document.createElement("script"), 
+    getIcpInfo_tag.type = "text/javascript", 
+    getIcpInfo_tag.async = true, 
+    getIcpInfo_tag.src = "https://api.yya.gs/Api/getIcpInfo"; // 代码频繁更新，建议不要弄到本地
+    var b = document.getElementsByTagName("script")[0];
+    b.parentNode.insertBefore(getIcpInfo_tag, b);
+}(window);
+</script> 
+   <div class="clearfix" style="margin-bottom:40px"></div> 
+   
+   <p>将以下代码放到需要显示的地方即可</p> 
+   <pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+!<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(window)</span> </span>{
+    <span class="hljs-built_in">window</span>.__GETICPINFO__ = {
+        websiteHost: <span class="hljs-string">''</span>, <span class="hljs-comment">// 不填将获取当前域名备案信息 这里可以填指定域名</span>
+        jqueryPath: <span class="hljs-string">''</span>, <span class="hljs-comment">// 自定义jquery路径 之前有引入则不再引入 默认是bootcdn 可不用改</span>
+        layerHeight: <span class="hljs-string">'auto'</span>, <span class="hljs-comment">// layer弹出层长度 默认自适应 可不用改</span>
+        isCenter: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否居中 默认不居中 选择居中将单独占用一行</span>
+        isShowInfo: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否点击备案号显示详细信息 false则不引入jquery和layer</span>
+        showIcon: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否显示图标</span>
+        icpIcon:<span class="hljs-string">""</span>, <span class="hljs-comment">// 自定义图标地址</span>
+        removeDecoration: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否去掉a标签下划线 建议去掉比较美观</span>
+        aColor: <span class="hljs-string">"#7B7B7B"</span>, <span class="hljs-comment">// 字体颜色</span>
+        cacheTime: <span class="hljs-number">1</span> <span class="hljs-comment">// 缓存本地时间(防止重复获取拉低速度) 单位：天 默认1天</span>
+    };
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;span id="icpInfoSpan"&gt;&lt;/span&gt;'</span>);
+    getIcpInfo_tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"script"</span>), 
+    getIcpInfo_tag.type = <span class="hljs-string">"text/javascript"</span>, 
+    getIcpInfo_tag.async = <span class="hljs-literal">true</span>, 
+    getIcpInfo_tag.src = <span class="hljs-string">"https://api.yya.gs/Api/getIcpInfo"</span>; <span class="hljs-comment">// 代码频繁更新，建议不要弄到本地</span>
+    <span class="hljs-keyword">var</span> b = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"script"</span>)[<span class="hljs-number">0</span>];
+    b.parentNode.insertBefore(getIcpInfo_tag, b);
+}(<span class="hljs-built_in">window</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2>精简版，只显示备案号</h2>
+<pre class='hljs'><code>&lt;script&gt;document.<span class="hljs-keyword">write</span>(unescape(<span class="hljs-string">"<span class="hljs-variable">%3Cscript</span><span class="hljs-variable">%20charset</span><span class="hljs-variable">%3D</span><span class="hljs-variable">%27utf</span>-8<span class="hljs-variable">%27</span><span class="hljs-variable">%20src</span><span class="hljs-variable">%3D</span><span class="hljs-variable">%27https</span><span class="hljs-variable">%3A</span>//api.yya.gs/Api/getIcpInfoSimple<span class="hljs-variable">%27</span><span class="hljs-variable">%3E</span><span class="hljs-variable">%3C</span>/script<span class="hljs-variable">%3E</span>"</span>));&lt;<span class="hljs-regexp">/script&gt;
+</span></code></pre>
+  </div>  
+  <div class="clearfix" style="margin-bottom:200px"></div> 
+ </body>
+</html>
