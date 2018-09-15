@@ -24,5 +24,5 @@
     var b = document.getElementsByTagName("script")[0];
     b.parentNode.insertBefore(getIcpInfo_tag, b);
 }(window);
-<\/script>
+</script>
 </pre>
