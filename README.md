@@ -26,3 +26,9 @@
 }(window);
 </script>
 </pre>
+
+## 精简版，只显示备案号
+
+<pre>
+<script>document.write(unescape("%3Cscript%20charset%3D%27utf-8%27%20src%3D%27https%3A//api.yya.gs/Api/getIcpInfoSimple%27%3E%3C/script%3E"));</script>
+</pre>
