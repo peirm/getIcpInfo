@@ -79,7 +79,7 @@
    <div class="clearfix" style="margin-bottom:40px"></div> 
    
    <p>将以下代码放到需要显示的地方即可</p> 
-   <pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
 !<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(window)</span> </span>{
     <span class="hljs-built_in">window</span>.__GETICPINFO__ = {
         websiteHost: <span class="hljs-string">''</span>, <span class="hljs-comment">// 不填将获取当前域名备案信息 这里可以填指定域名</span>
@@ -91,9 +91,10 @@
         icpIcon:<span class="hljs-string">""</span>, <span class="hljs-comment">// 自定义图标地址</span>
         removeDecoration: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否去掉a标签下划线 建议去掉比较美观</span>
         aColor: <span class="hljs-string">""</span>, <span class="hljs-comment">// 字体颜色</span>
+        cacheMode: <span class="hljs-number">2</span>, <span class="hljs-comment">// 缓存本地方式 1为Cookie 2位localStorage</span>
         cacheTime: <span class="hljs-number">1</span> <span class="hljs-comment">// 缓存本地时间(防止重复获取拉低速度) 单位：天 默认1天</span>
     };
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;span id="icpInfoSpan"&gt;&lt;/span&gt;'</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&amp;lt;span id="icpInfoSpan"&gt;&amp;lt;/span&gt;'</span>);
     getIcpInfo_tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"script"</span>), 
     getIcpInfo_tag.type = <span class="hljs-string">"text/javascript"</span>, 
     getIcpInfo_tag.async = <span class="hljs-literal">true</span>, 
@@ -101,8 +102,7 @@
     <span class="hljs-keyword">var</span> b = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"script"</span>)[<span class="hljs-number">0</span>];
     b.parentNode.insertBefore(getIcpInfo_tag, b);
 }(<span class="hljs-built_in">window</span>);
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
 <h2>精简版，只显示备案号</h2>
 <pre class='hljs'><code>&lt;script&gt;document.<span class="hljs-keyword">write</span>(unescape(<span class="hljs-string">"<span class="hljs-variable">%3Cscript</span><span class="hljs-variable">%20charset</span><span class="hljs-variable">%3D</span><span class="hljs-variable">%27utf</span>-8<span class="hljs-variable">%27</span><span class="hljs-variable">%20src</span><span class="hljs-variable">%3D</span><span class="hljs-variable">%27https</span><span class="hljs-variable">%3A</span>//api.yya.gs/Api/getIcpInfoSimple<span class="hljs-variable">%27</span><span class="hljs-variable">%3E</span><span class="hljs-variable">%3C</span>/script<span class="hljs-variable">%3E</span>"</span>));&lt;<span class="hljs-regexp">/script&gt;
 </span></code></pre>
