@@ -14,6 +14,7 @@
         icpIcon:"", // 自定义图标地址
         removeDecoration: true, // 是否去掉a标签下划线 建议去掉比较美观
         aColor: "", // 字体颜色
+        cacheMode: 2, // 缓存本地方式 1为Cookie 2位localStorage
         cacheTime: 1 // 缓存本地时间(防止重复获取拉低速度) 单位：天 默认1天
     };
     document.write('<span id="icpInfoSpan"></span>');
